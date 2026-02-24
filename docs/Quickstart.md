@@ -432,7 +432,24 @@ Of course, it’s worth noting that another prerequisite for downloading paid au
 
 #### LanRenTingShu Book/Album Download
 
+Musicdl currently supports searching and downloading books (书籍) and albums (节目) from LanRenTingShu. Example usage:
 
+```python
+from musicdl import musicdl
+
+# only search by book
+init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['book']}}
+# only search by album
+init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}
+# search by album and book
+init_music_clients_cfg = {'LRTSMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album', 'book']}}
+# instance music_client
+music_client = musicdl.MusicClient(music_sources=['LRTSMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+# start
+music_client.startcmdui()
+```
+
+By default, this example only downloads free albums and tracks. To access paid content, you must configure your user cookies in `init_music_clients_cfg`.
 
 #### TIDAL High-Quality Music Download
 
