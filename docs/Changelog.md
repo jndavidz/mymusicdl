@@ -1,5 +1,7 @@
 # Release Log
 
+- 2026-03-14: Released musicdl v2.10.1 — added music search and download support for Qobuz (https://play.qobuz.com/discover), along with playlist parsing and download features; expanded the number of shared NetEase Cloud Music premium accounts; fixed several known minor bugs.
+
 - 2026-03-13: Released musicdl v2.10.0 — added support for the Deezer Music Client (search, download, playlist); modified arguments of some API interfaces so that users can choose whether to write song metadata and save lyrics; and attempted to fix several known bugs.
 
 - 2026-03-11: Released musicdl v2.9.10 — meticulously refactored the core code for Qishui Music, SoundCloud, TIDAL, and Apple Music to support playlist parsing and downloading across these platforms; fixed some bugs.
