@@ -135,6 +135,7 @@ To put it simply, `BaseMusicClient` is the abstract base class for all concrete 
 - `musicdl.modules.sources.NeteaseMusicClient`
 - `musicdl.modules.sources.QianqianMusicClient`
 - `musicdl.modules.sources.QQMusicClient`
+- `musicdl.modules.sources.QobuzMusicClient`
 - `musicdl.modules.sources.SodaMusicClient`
 - `musicdl.modules.sources.StreetVoiceMusicClient`
 - `musicdl.modules.sources.SoundCloudMusicClient`
