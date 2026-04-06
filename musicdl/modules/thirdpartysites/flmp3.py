@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from rich.progress import Progress
 from ..sources import BaseMusicClient
 from urllib.parse import urljoin, urlparse
-from ..utils import legalizestring, usesearchheaderscookies, seconds2hms, searchdictbykey, SongInfo, QuarkParser, AudioLinkTester
+from ..utils import legalizestring, usesearchheaderscookies, searchdictbykey, SongInfo, QuarkParser, AudioLinkTester, SongInfoUtils
 
 
 '''FLMP3MusicClient'''
@@ -84,7 +84,7 @@ class FLMP3MusicClient(BaseMusicClient):
                     duration_in_secs = duration[0] if duration else 0
                     song_info = SongInfo(
                         raw_data={'search': search_result, 'download': download_result, 'lyric': {}}, source=self.source, song_name=legalizestring(search_result.get('title')), singers=legalizestring(search_result.get('artist')), album='NULL',
-                        ext='mp3', file_size_bytes=None, file_size='NULL', identifier=download_result['song_id'], duration_s=duration_in_secs, duration=seconds2hms(duration_in_secs), lyric='NULL', cover_url=search_result.get('img_url', None),
+                        ext='mp3', file_size_bytes=None, file_size='NULL', identifier=download_result['song_id'], duration_s=duration_in_secs, duration=SongInfoUtils.seconds2hms(duration_in_secs), lyric='NULL', cover_url=search_result.get('img_url', None),
                         download_url=download_url, download_url_status=self.quark_audio_link_tester.test(download_url, request_overrides), default_download_headers=self.quark_default_download_headers,
                     )
                     song_info.download_url_status['probe_status'] = self.quark_audio_link_tester.probe(song_info.download_url, request_overrides)

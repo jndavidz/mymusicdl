@@ -10,7 +10,7 @@ import copy
 from urllib.parse import urlsplit
 from rich.progress import Progress
 from ..sources import BaseMusicClient
-from ..utils import resp2json, seconds2hms, legalizestring, safeextractfromdict, usesearchheaderscookies, extractdurationsecondsfromlrc, cleanlrc, SongInfo, LanZouYParser, AudioLinkTester
+from ..utils import resp2json, legalizestring, safeextractfromdict, usesearchheaderscookies, extractdurationsecondsfromlrc, cleanlrc, SongInfo, LanZouYParser, AudioLinkTester, SongInfoUtils
 
 
 '''ZhuolinMusicClient'''
@@ -71,7 +71,7 @@ class ZhuolinMusicClient(BaseMusicClient):
                     (resp := self.post('https://music.zhuolin.wang/plugns/api.php', verify=False, data={'types': 'lyric', 'id': search_result['id'], 'source': 'freemp3'})).raise_for_status()
                     lyric_result = resp2json(resp=resp); lyric = safeextractfromdict(lyric_result, ['lyric'], '')
                     if lyric.startswith('http'): lyric = cleanlrc(self.get(lyric, **request_overrides).text)
-                    lyric = lyric or 'NULL'; song_info.duration_s = extractdurationsecondsfromlrc(lyric); song_info.duration = seconds2hms(song_info.duration_s)
+                    lyric = lyric or 'NULL'; song_info.duration_s = extractdurationsecondsfromlrc(lyric); song_info.duration = SongInfoUtils.seconds2hms(song_info.duration_s)
                 except:
                     lyric_result, lyric = {}, 'NULL'
                 song_info.raw_data['lyric'] = lyric_result if lyric_result else song_info.raw_data['lyric']
