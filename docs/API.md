@@ -1,5 +1,49 @@
 # Musicdl APIs
 
+This document describes the main public interfaces of `MusicClient`, `MusicClientCMD`, and `BaseMusicClient` based on the latest code version.
+
+## `MusicClient`
+
+`MusicClient` is the high-level entry point for end users. It manages multiple source-specific clients, sends search and download requests to the correct source, and provides both programmatic and interactive workflows.
+
+Constructor:
+
+```python
+musicdl.musicdl.MusicClient(
+    music_sources: list = [],
+    init_music_clients_cfg: dict = {},
+    clients_threadings: dict = {},
+    requests_overrides: dict = {},
+    search_rules: dict = {},
+)
+```
+
+Arguments:
+
+- **`music_sources`**
+
+  A list of source client names to enable. You can pass a list such as `["NeteaseMusicClient", "QQMusicClient"]`.
+  You can also pass a single string, it will be converted into a one-item list internally.
+  If empty, the default sources are: 
+  ```python
+  ["MiguMusicClient", "NeteaseMusicClient", "QQMusicClient", "KuwoMusicClient", "QianqianMusicClient"]
+  ```
+
+- **`init_music_clients_cfg`**
+
+  Per-source initialization settings. The key is the source name, and the value is a config dictionary used when building that source client.
+  
+  Example:
+  
+  
+  
+  
+
+  
+  
+  
+  
+
 
 ## `musicdl.musicdl.MusicClient`
 
