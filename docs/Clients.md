@@ -1,26 +1,157 @@
 # Music Clients
 
+This section explains how to use all music clients supported by musicdl, covering two main scenarios: direct use from the terminal and integration within Python code.
+
 ## Platforms in Greater China
 
 #### BilibiliMusicClient
 
+[Bilibili Music](https://www.bilibili.com/audio/home/?type=9) is Bilibili’s dedicated audio platform, where users can discover, stream, and enjoy a wide variety of music, podcasts, and original audio content.
+
+We can use BilibiliMusicClient to download the music above.
+
+BilibiliMusicClient requires no additional CLI tools such as ffmpeg or N_m3u8DL-RE. Just install musicdl via pip and it is ready to use out of the box.
+
+(1) Command-Line Usage
+
+- Basic usage for song search and download, without login cookies:
+
+  `musicdl -m BilibiliMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m BilibiliMusicClient -i "{'BilibiliMusicClient': {'default_search_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
+
+(2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['BilibiliMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'BilibiliMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+        'default_download_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['BilibiliMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
 #### FiveSingMusicClient
+
+We can download the above music using FiveSingMusicClient.
+
+Using FiveSingMusicClient does not require installing any extra command-line tools like ffmpeg or N_m3u8DL-RE. Simply run pip install musicdl and you can start using it right away.
+
+(1) Command-Line Usage
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+
+
+(2) Invoke It in Python
 
 #### KugouMusicClient
 
+The music above can be downloaded with KugouMusicClient.
+
+KugouMusicClient works out of the box with no need for extra CLI dependencies such as ffmpeg or N_m3u8DL-RE — all you need is pip install musicdl.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
+
 #### KuwoMusicClient
+
+We can use KuwoMusicClient to download the track above.
+
+No additional command-line tools, including ffmpeg or N_m3u8DL-RE, are needed to use KuwoMusicClient. Installing musicdl with pip is enough to get started immediately.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
 
 #### MiguMusicClient
 
+You can use MiguMusicClient to download the music above.
+
+MiguMusicClient can be used directly without installing any extra CLI utilities like ffmpeg or N_m3u8DL-RE. Just install musicdl via pip and it is good to go.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
+
 #### NeteaseMusicClient
+
+The above music can be downloaded through NeteaseMusicClient.
+
+There is no need to install extra tools such as ffmpeg or N_m3u8DL-RE to use NeteaseMusicClient. A simple pip install musicdl is all it takes.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
 
 #### QianqianMusicClient
 
+We can rely on QianqianMusicClient to download the music above.
+
+QianqianMusicClient comes ready to use without relying on additional CLI tools like ffmpeg or N_m3u8DL-RE. Just install musicdl through pip and you are all set.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
+
 #### QQMusicClient
+
+QQMusicClient can be used to download the music listed above.
+
+To use QQMusicClient, you do not need any extra command-line tools such as ffmpeg or N_m3u8DL-RE. Once musicdl is installed with pip, it works immediately.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
 
 #### SodaMusicClient
 
+We can use SodaMusicClient for downloading the music above.
+
+SodaMusicClient offers an out-of-the-box experience: no extra CLI tools like ffmpeg or N_m3u8DL-RE are required, and pip install musicdl is all you need.
+
+(1) Command-Line Usage
+
+
+
+(2) Invoke It in Python
+
 #### StreetVoiceMusicClient
+
+
 
 
 ## Global Streaming / Indie
@@ -31,7 +162,11 @@
 
 #### JamendoMusicClient
 
+JamendoMusicClient requires only a pip installation of musicdl, with no additional setup for tools like ffmpeg or N_m3u8DL-RE.
+
 #### JooxMusicClient
+
+With JooxMusicClient, there is no extra dependency on CLI tools such as ffmpeg or N_m3u8DL-RE. Just install musicdl and you are ready to go.
 
 #### QobuzMusicClient
 
@@ -48,23 +183,43 @@
 
 #### LizhiMusicClient
 
+LizhiMusicClient requires nothing beyond pip install musicdl — no extra CLI tools, no complicated setup.
+
 #### LRTSMusicClient
+
+You can start using LRTSMusicClient right after installing musicdl via pip, without having to install tools like ffmpeg or N_m3u8DL-RE.
 
 #### QingtingMusicClient
 
+QingtingMusicClient keeps things easy: no additional CLI tools to install, just pip install musicdl and you’re all set.
+
 #### XimalayaMusicClient
+
+XimalayaMusicClient is ready to use after a simple pip install. No extra command-line tools like ffmpeg or N_m3u8DL-RE are needed.
+
 
 ## Aggregators / Multi-Source Gateways
 
 #### GDStudioMusicClient
 
+There’s no need to set up extra CLI tools such as ffmpeg or N_m3u8DL-RE. Just install musicdl via pip and start using GDStudioMusicClient right away.
+
 #### JBSouMusicClient
+
+Using JBSouMusicClient is simple: just pip install musicdl. No additional tools like ffmpeg or N_m3u8DL-RE are required.
 
 #### MP3JuiceMusicClient
 
+MP3JuiceMusicClient doesn’t rely on external CLI tools like ffmpeg or N_m3u8DL-RE. Once you install musicdl, it’s ready to use.
+
 #### MyFreeMP3MusicClient
 
+No extra setup is needed for MyFreeMP3MusicClient — just install musicdl with pip and it will work out of the box.
+
 #### TuneHubMusicClient
+
+To use TuneHubMusicClient, all you need is pip install musicdl. You don’t have to install ffmpeg, N_m3u8DL-RE, or any other CLI tools.
+
 
 
 
@@ -72,33 +227,61 @@
 
 #### BuguyyMusicClient
 
+No extra CLI tools like ffmpeg or N_m3u8DL-RE are needed. Just run pip install musicdl and start using BuguyyMusicClient right away.
+
+
+
 #### FangpiMusicClient
+
+FangpiMusicClient works out of the box with just pip install musicdl — no ffmpeg, no N_m3u8DL-RE, and no other CLI tools required.
 
 #### FiveSongMusicClient
 
+Using FiveSongMusicClient does not require the installation of any additional command-line tools, such as ffmpeg or N_m3u8DL-RE. Installing musicdl via pip is sufficient for immediate use.
+
 #### FLMP3MusicClient
+
+Getting started with FLMP3MusicClient is easy: no need to install ffmpeg, N_m3u8DL-RE, or any other CLI tools. Just pip install musicdl and you are good to go.
 
 #### GequbaoMusicClient
 
+GequbaoMusicClient saves you from dealing with extra CLI dependencies like ffmpeg or N_m3u8DL-RE — a simple pip install musicdl is all it takes.
+
 #### GequhaiMusicClient
+
+GequhaiMusicClient is truly plug-and-play: no external CLI tools such as ffmpeg or N_m3u8DL-RE are required. Just install musicdl and use it instantly.
 
 #### HTQYYMusicClient
 
+There is no need to set up external command-line tools like ffmpeg or N_m3u8DL-RE when using HTQYYMusicClient. A single pip install musicdl is enough.
+
 #### JCPOOMusicClient
+
+To use JCPOOMusicClient, you do not need to install any additional CLI tools such as ffmpeg or N_m3u8DL-RE. Simply install musicdl via pip and start using it immediately.
 
 #### KKWSMusicClient
 
+KKWSMusicClient now works without requiring extra CLI tools like ffmpeg or N_m3u8DL-RE. After installing musicdl with pip, it is ready to use straight away.
+
 #### LivePOOMusicClient
+
+LivePOOMusicClient operates without reliance on supplementary CLI tools, including ffmpeg and N_m3u8DL-RE. Installation of musicdl via pip alone enables out-of-the-box usage.
 
 #### MituMusicClient
 
+No extra setup. No external CLI tools. Just pip install musicdl and MituMusicClient is ready to use.
+
 #### TwoT58MusicClient
+
+TwoT58MusicClient is designed for hassle-free use: no additional CLI tools like ffmpeg or N_m3u8DL-RE are needed, and a simple pip install musicdl gets everything ready.
 
 #### YinyuedaoMusicClient
 
+You don’t need to install any extra tools like ffmpeg or N_m3u8DL-RE to use YinyuedaoMusicClient — just pip install musicdl and you’re good to go.
+
 #### ZhuolinMusicClient
 
-
+ZhuolinMusicClient works right out of the box. No ffmpeg, no N_m3u8DL-RE, and no other CLI tools needed — just install musicdl with pip.
 
 
 
