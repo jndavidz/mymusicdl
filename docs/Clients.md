@@ -296,17 +296,9 @@ No additional command-line tools, including ffmpeg or N_m3u8DL-RE, are needed to
   music_client.download(song_infos=song_infos)
   ```
 
-
-
-
-
-
-
-
-
-
-
 #### MiguMusicClient
+
+[Migu Music](https://music.migu.cn/v5/#/musicLibrary) is a Chinese music streaming platform that offers a large library of songs, albums, playlists, and other digital music content.
 
 You can use MiguMusicClient to download the music above.
 
@@ -314,9 +306,86 @@ MiguMusicClient can be used directly without installing any extra CLI utilities 
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+  `musicdl -m MiguMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  `musicdl -m MiguMusicClient -i "{'MiguMusicClient': {'default_search_cookies': 'YOUR_COOKIES'}}"`
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://music.migu.cn/v5/#/playlist?playlistId=208219194&playlistType=create" -m MiguMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://music.migu.cn/v5/#/playlist?playlistId=208219194&playlistType=create" -m MiguMusicClient -i "{'MiguMusicClient': {'default_parse_cookies': 'YOUR_COOKIES'}}"`
 
 (2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['MiguMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'MiguMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['MiguMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['MiguMusicClient'])
+  song_infos = music_client.parseplaylist("https://music.migu.cn/v5/#/playlist?playlistId=208219194&playlistType=create")
+  music_client.download(song_infos=song_infos)
+  ```
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'MiguMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['MiguMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://music.migu.cn/v5/#/playlist?playlistId=208219194&playlistType=create")
+  music_client.download(song_infos=song_infos)
+  ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### NeteaseMusicClient
 
@@ -326,9 +395,23 @@ There is no need to install extra tools such as ffmpeg or N_m3u8DL-RE to use Net
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 (2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 #### QianqianMusicClient
 
@@ -338,9 +421,23 @@ QianqianMusicClient comes ready to use without relying on additional CLI tools l
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 (2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 #### QQMusicClient
 
@@ -350,9 +447,23 @@ To use QQMusicClient, you do not need any extra command-line tools such as ffmpe
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 (2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 #### SodaMusicClient
 
@@ -362,9 +473,31 @@ SodaMusicClient offers an out-of-the-box experience: no extra CLI tools like ffm
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 (2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+
+
+
+
+
+
+
 
 #### StreetVoiceMusicClient
 
