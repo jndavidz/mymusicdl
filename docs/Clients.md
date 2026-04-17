@@ -73,7 +73,7 @@ Using FiveSingMusicClient does not require installing any extra command-line too
 
 - Simple usage for playlist parsing and downloading, with login cookies:
   
-  `musicdl -p "https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html" -m FiveSingMusicClient -i "{'FiveSingMusicClient': {'default_search_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
+  `musicdl -p "https://5sing.kugou.com/yeluoluo/dj/631b3fa72418b11003089b8d.html" -m FiveSingMusicClient -i "{'FiveSingMusicClient': {'default_parse_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
 
 (2) Invoke It in Python
 
@@ -120,7 +120,7 @@ Using FiveSingMusicClient does not require installing any extra command-line too
   your_vip_cookies_with_str_or_dict_format = ''
   init_music_clients_cfg = {
     'FiveSingMusicClient': {
-        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
         'default_download_cookies': your_vip_cookies_with_str_or_dict_format,
     }
   }
@@ -131,17 +131,106 @@ Using FiveSingMusicClient does not require installing any extra command-line too
 
 #### KugouMusicClient
 
+[KuGou Music](http://www.kugou.com/) is a major Chinese online music platform that offers songs, charts, playlists, music videos, audiobooks, and live content.
+
 The music above can be downloaded with KugouMusicClient.
 
 KugouMusicClient works out of the box with no need for extra CLI dependencies such as ffmpeg or N_m3u8DL-RE — all you need is pip install musicdl.
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+  `musicdl -m KugouMusicClient`
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  Kugou Music membership cookies copied directly from the web page can easily cause issues, so we provide the script [build_cookies_for_kugou.py](https://github.com/CharlesPikachu/musicdl/blob/master/scripts/build_cookies_for_kugou.py) in the repository to help you directly obtain valid cookies for your member account. 
+  The output format is as follows:
+  
+  ```python
+  {'KUGOU_API_GUID': 'xxx', 'KUGOU_API_MID': 'xxx', 'KUGOU_API_MAC': 'xxx', 'KUGOU_API_DEV': 'xxx', 'token': 'xxx', 'userid': 'xxx', 'dfid': 'xxx'}
+  ```
+  
+  Then, you can use KugouMusicClient just like other music clients by passing the membership cookies as follows,
+  
+  `musicdl -m KugouMusicClient -i "{'KugouMusicClient': {'default_search_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  `musicdl -p "https://www.kugou.com/yy/special/single/18170.html" -m KugouMusicClient`
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  `musicdl -p "https://www.kugou.com/yy/special/single/18170.html" -m KugouMusicClient -i "{'KugouMusicClient': {'default_search_cookies': 'YOUR_COOKIES', 'default_download_cookies': 'YOUR_COOKIES'}}"`
 
 (2) Invoke It in Python
 
+- Basic usage for song search and download, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['KugouMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'KugouMusicClient': {
+        'default_search_cookies': your_vip_cookies_with_str_or_dict_format,
+        'default_download_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['KugouMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['KugouMusicClient'])
+  song_infos = music_client.parseplaylist("https://www.kugou.com/yy/special/single/18170.html")
+  music_client.download(song_infos=song_infos)
+  ```
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+  ```python
+  from musicdl import musicdl
+  
+  your_vip_cookies_with_str_or_dict_format = ''
+  init_music_clients_cfg = {
+    'KugouMusicClient': {
+        'default_parse_cookies': your_vip_cookies_with_str_or_dict_format,
+        'default_download_cookies': your_vip_cookies_with_str_or_dict_format,
+    }
+  }
+  music_client = musicdl.MusicClient(music_sources=['KugouMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  song_infos = music_client.parseplaylist("https://www.kugou.com/yy/special/single/18170.html")
+  music_client.download(song_infos=song_infos)
+  ```
+
+
+
+
+
+
+
+
+
+
+
 #### KuwoMusicClient
+
+[Kuwo Music](http://www.kuwo.cn/) is a major Chinese online music platform that offers high-quality music streaming, charts, playlists, radio, and downloadable songs.
 
 We can use KuwoMusicClient to download the track above.
 
@@ -149,9 +238,35 @@ No additional command-line tools, including ffmpeg or N_m3u8DL-RE, are needed to
 
 (1) Command-Line Usage
 
+- Basic usage for song search and download, without login cookies:
 
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
 
 (2) Invoke It in Python
+
+- Basic usage for song search and download, without login cookies:
+
+- Simple usage for searching and downloading songs, with login cookies:
+
+- Basic usage for playlist parsing and downloading, without login cookies:
+
+- Simple usage for playlist parsing and downloading, with login cookies:
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### MiguMusicClient
 
@@ -370,37 +485,6 @@ ZhuolinMusicClient works right out of the box. No ffmpeg, no N_m3u8DL-RE, and no
 
 
 
-#### Kugou Music Download
-
-Musicdl currently supports searching and downloading from KuGou Music, and it is used in the same way as other music clients. 
-The only thing to note is that if you need to configure member cookies to download purchased albums/singles or member-exclusive audio quality, the cookies must be in the following format:
-
-```python
-{
-  'KUGOU_API_GUID': 'xxxx', 
-  'KUGOU_API_MID': 'xxxx', 
-  'KUGOU_API_MAC': 'xxxx', 
-  'KUGOU_API_DEV': 'xxxx', 
-  'token': 'xxxx', 
-  'userid': 'xxxx', 
-  'dfid': 'xxxx'
-}
-```
-
-You can either use the [build_cookies_for_kugou.py](https://github.com/CharlesPikachu/musicdl/blob/master/scripts/build_cookies_for_kugou.py) script provided in the repo to obtain them directly, 
-or capture the above arguments yourself via network packet capture on the KuGou app or the web client, and then configure musicdl as follows:
-
-```python
-from musicdl import musicdl
-
-cookies = {'KUGOU_API_GUID': 'xxxx', 'KUGOU_API_MID': 'xxxx', 'KUGOU_API_MAC': 'xxxx', 'KUGOU_API_DEV': 'xxxx', 'token': 'xxxx', 'userid': 'xxxx', 'dfid': 'xxxx'}
-init_music_clients_cfg = {'KugouMusicClient': {'default_search_cookies': cookies, 'search_size_per_source': 5}}
-music_client = musicdl.MusicClient(music_sources=['KugouMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
-music_client.startcmdui()
-```
-
-Keep in mind that cookie names captured from network traffic may not match the cookie names required by musicdl.
-You need to map them correctly to construct valid cookies, otherwise, member-only music downloads won’t work.
 
 #### LizhiFM and XimalayaFM Track/Album Download
 
