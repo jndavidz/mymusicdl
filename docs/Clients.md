@@ -808,29 +808,75 @@ QingtingMusicClient keeps things easy: no additional CLI tools to install, just 
 XimalayaMusicClient is ready to use after a simple pip install. No extra command-line tools like ffmpeg or N_m3u8DL-RE are needed.
 
 
+
+
+
 ## Aggregators / Multi-Source Gateways
 
 #### GDStudioMusicClient
 
+[GD Music Station](https://music.gdstudio.xyz/) is an online music platform that lets users search, stream, and download music across multiple music sources through a simple web interface.
+
+GDStudioMusicClient is the right tool for downloading music from the platform above.
+
 There’s no need to set up extra CLI tools such as ffmpeg or N_m3u8DL-RE. Just install musicdl via pip and start using GDStudioMusicClient right away.
+
+
+
+
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 #### JBSouMusicClient
 
+[JBSou](https://www.jbsou.cn/) is a free online music search and download site that lets users look up tracks across multiple Chinese music platforms, including NetEase, QQ Music, Kugou, Kuwo, Migu, and Qianqian. 
+
+JBSouMusicClient is designed for downloading music from the platform above.
+
 Using JBSouMusicClient is simple: just pip install musicdl. No additional tools like ffmpeg or N_m3u8DL-RE are required.
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
+
 
 #### MP3JuiceMusicClient
 
+[MP3Juice](https://mp3juice.co/) is a free online music search and download platform that lets users find tracks across multiple sources and save them as MP3 or MP4 files without sign-up or extra software.
+
+For music downloads from the platform above, MP3JuiceMusicClient is the go-to option.
+
 MP3JuiceMusicClient doesn’t rely on external CLI tools like ffmpeg or N_m3u8DL-RE. Once you install musicdl, it’s ready to use.
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 #### MyFreeMP3MusicClient
 
+[MyFreeMP3](https://www.myfreemp3.com.cn/) is a free online music search and download site that lets users look up songs from multiple sources and download high-quality audio through a simple web interface.
+
+If you want to download music from the platform above, MyFreeMP3MusicClient is the client to use.
+
 No extra setup is needed for MyFreeMP3MusicClient — just install musicdl with pip and it will work out of the box.
+
+(1) Command-Line Usage
+
+(2) Invoke It in Python
 
 #### TuneHubMusicClient
 
+[TuneHub](https://tunehub.sayqz.com/docs) is a music parsing API platform that lets developers search and retrieve playable links from multiple music services through a unified interface.
+
+Music from the platform above can be downloaded using TuneHubMusicClient.
+
 To use TuneHubMusicClient, all you need is pip install musicdl. You don’t have to install ffmpeg, N_m3u8DL-RE, or any other CLI tools.
 
+(1) Command-Line Usage
 
+(2) Invoke It in Python
 
 
 ## Unofficial Download Sites / Scrapers
