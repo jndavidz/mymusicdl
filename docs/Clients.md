@@ -812,15 +812,75 @@ With JooxMusicClient, there is no extra dependency on CLI tools such as ffmpeg o
 
 [Lizhi FM](https://www.lizhi.fm/) is a Chinese audio platform and podcast community whose slogan is "Everyone can be a podcaster."
 
+LizhiMusicClient is the right tool for downloading audio content from the platform above.
+
 LizhiMusicClient requires nothing beyond pip install musicdl — no extra CLI tools, no complicated setup.
 
 (1) Command-Line Usage
 
+- Search and Download Tracks from This Platform
+
+  `musicdl -m LizhiMusicClient -i "{'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track']}}"`
+
+- Search and Download Albums from This Platform
+
+  `musicdl -m LizhiMusicClient -i "{'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}"`
+
+- Search for and Download Tracks and Albums from This Platform
+
+  `musicdl -m LizhiMusicClient -i "{'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album']}}"`
+
+- Search & Download Tracks and Albums Using Your Own Premium Account Cookies
+
+  `musicdl -m LizhiMusicClient -i "{'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album'], 'default_search_cookies': 'YOUR_COOKIES'}}"`
+
 (2) Invoke It in Python
+
+- Search and Download Tracks from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track']}}
+  music_client = musicdl.MusicClient(music_sources=['LizhiMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search and Download Albums from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}
+  music_client = musicdl.MusicClient(music_sources=['LizhiMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search for and Download Tracks and Albums from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album']}}
+  music_client = musicdl.MusicClient(music_sources=['LizhiMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search & Download Tracks and Albums Using Your Own Premium Account Cookies
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'LizhiMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album'], 'default_search_cookies': 'YOUR_COOKIES'}}
+  music_client = musicdl.MusicClient(music_sources=['LizhiMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
 
 #### LRTSMusicClient
 
 [LRTS.me](https://www.lrts.me/) is the official website of Lanrentingshu, a leading Chinese audio reading platform that offers audiobooks, podcasts, radio-style programs, and other spoken-word content.
+
+LRTSMusicClient is the recommended client for downloading audio from the platform above.
 
 You can start using LRTSMusicClient right after installing musicdl via pip, without having to install tools like ffmpeg or N_m3u8DL-RE.
 
@@ -832,6 +892,8 @@ You can start using LRTSMusicClient right after installing musicdl via pip, with
 
 [Qingting FM](https://www.qtfm.cn/) is a major Chinese audio streaming platform that offers podcasts, radio broadcasts, audiobooks, news, music, education, and other spoken-word content.
 
+With QingtingMusicClient, audio from the platform above can be downloaded easily.
+
 QingtingMusicClient keeps things easy: no additional CLI tools to install, just pip install musicdl and you’re all set.
 
 (1) Command-Line Usage
@@ -842,14 +904,78 @@ QingtingMusicClient keeps things easy: no additional CLI tools to install, just 
 
 [Ximalaya](https://www.ximalaya.com/) is a leading Chinese online audio platform where users can listen to podcasts, audiobooks, radio-style programs, and other spoken-word content.
 
+Audio content from the platform above can be downloaded with XimalayaMusicClient.
+
 XimalayaMusicClient is ready to use after a simple pip install. No extra command-line tools like ffmpeg or N_m3u8DL-RE are needed.
 
 (1) Command-Line Usage
 
+- Search and Download Tracks from This Platform
+
+  `musicdl -m XimalayaMusicClient -i "{'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track']}}"`
+
+- Search and Download Albums from This Platform
+
+  `musicdl -m XimalayaMusicClient -i "{'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}"`
+
+- Search for and Download Tracks and Albums from This Platform
+
+  `musicdl -m XimalayaMusicClient -i "{'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album']}}"`
+
+- Search & Download Tracks and Albums Using Your Own Premium Account Cookies
+
+  `musicdl -m XimalayaMusicClient -i "{'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album'], 'default_search_cookies': 'YOUR_COOKIES'}}"`
+
 (2) Invoke It in Python
 
+- Search and Download Tracks from This Platform
 
+  ```python
+  from musicdl import musicdl
 
+  init_music_clients_cfg = {'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track']}}
+  music_client = musicdl.MusicClient(music_sources=['XimalayaMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search and Download Albums from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['album']}}
+  music_client = musicdl.MusicClient(music_sources=['XimalayaMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search for and Download Tracks and Albums from This Platform
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album']}}
+  music_client = musicdl.MusicClient(music_sources=['XimalayaMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+- Search & Download Tracks and Albums Using Your Own Premium Account Cookies
+
+  ```python
+  from musicdl import musicdl
+
+  init_music_clients_cfg = {'XimalayaMusicClient': {'search_size_per_source': 2, 'allowed_search_types': ['track', 'album'], 'default_search_cookies': 'YOUR_COOKIES'}}
+  music_client = musicdl.MusicClient(music_sources=['XimalayaMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+(3) Screenshots of Running Results
+
+<div align="center">
+  <div>
+    <img src="https://github.com/CharlesPikachu/musicdl/raw/master/docs/screenshot/ximalayascreenshot.gif" width="600"/>
+  </div>
+</div>
+<br />
 
 ## Aggregators / Multi-Source Gateways
 
