@@ -819,15 +819,63 @@ XimalayaMusicClient is ready to use after a simple pip install. No extra command
 
 GDStudioMusicClient is the right tool for downloading music from the platform above.
 
+The table below shows all music platforms currently supported by GDStudioMusicClient via GD Music Station,
+
+| Source (EN)             | Source (CN)                        | Official Websites                     | `allowed_music_sources`      |
+| -----------------       | -------------------                | -----------------------------------   | -------------------          |
+| Spotify                 | Spotify                            | https://www.spotify.com               | `spotify`                    |
+| Tencent (QQ Music)      | QQ音乐                             | https://y.qq.com                      | `tencent`                    |
+| NetEase Cloud Music     | 网易云音乐                         | https://music.163.com                 | `netease`                    |
+| Kuwo                    | 酷我音乐                           | https://www.kuwo.cn                   | `kuwo`                       |
+| TIDAL                   | TIDAL                              | https://tidal.com                     | `tidal`                      |
+| Qobuz                   | Qobuz                              | https://www.qobuz.com                 | `qobuz`                      |
+| JOOX                    | JOOX                               | https://www.joox.com                  | `joox`                       |
+| Bilibili                | 哔哩哔哩                           | https://www.bilibili.com              | `bilibili`                   |
+| Apple Music             | 苹果音乐                           | https://www.apple.com/apple-music/    | `apple`                      |
+| YouTube Music           | 油管音乐                           | https://music.youtube.com             | `ytmusic`                    |
+
 There’s no need to set up extra CLI tools such as ffmpeg or N_m3u8DL-RE. Just install musicdl via pip and start using GDStudioMusicClient right away.
-
-
-
-
 
 (1) Command-Line Usage
 
+- Search for and Download Playable Music Files from Websites
+
+  `musicdl -m GDStudioMusicClient`
+  
+- Restrict Music Sources and Number of Results
+
+  `musicdl -m GDStudioMusicClient -i "{'GDStudioMusicClient': {'search_size_per_source': 5, 'allowed_music_sources': ['kuwo', 'netease', 'tidal', 'apple']}}"`
+
 (2) Invoke It in Python
+
+- Search for and Download Playable Music Files from Websites
+
+  ```python
+  from musicdl import musicdl
+
+  music_client = musicdl.MusicClient(music_sources=['GDStudioMusicClient'])
+  music_client.startcmdui()
+  ```
+
+- Restrict Music Sources and Number of Results
+
+  ```python
+  from musicdl import musicdl
+
+  # allowed_music_sources can be set to any subset (i.e., any combination) of ['spotify', 'tencent', 'netease', 'kuwo', 'tidal', 'qobuz', 'joox', 'bilibili', 'apple', 'ytmusic']
+  init_music_clients_cfg = {'GDStudioMusicClient': {'search_size_per_source': 5, 'allowed_music_sources': ['kuwo', 'netease', 'tidal', 'apple']}}
+  music_client = musicdl.MusicClient(music_sources=['GDStudioMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
+  music_client.startcmdui()
+  ```
+
+(3) Screenshots of Running Results
+
+<div align="center">
+  <div>
+    <img src="https://github.com/CharlesPikachu/musicdl/raw/master/docs/screenshot/gdstudioscreenshot.png" width="600"/>
+  </div>
+</div>
+<br />
 
 #### JBSouMusicClient
 
@@ -919,7 +967,7 @@ No extra CLI tools like ffmpeg or N_m3u8DL-RE are needed. Just run pip install m
   init_music_clients_cfg = {
     'BuguyyMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['BuguyyMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['BuguyyMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -961,7 +1009,7 @@ FangpiMusicClient works out of the box with just pip install musicdl — no ffmp
   init_music_clients_cfg = {
     'FangpiMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['FangpiMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['FangpiMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -990,7 +1038,7 @@ Using FiveSongMusicClient does not require the installation of any additional co
   init_music_clients_cfg = {
     'FiveSongMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['FiveSongMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['FiveSongMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1020,7 +1068,7 @@ Getting started with FLMP3MusicClient is easy: no need to install ffmpeg, N_m3u8
   init_music_clients_cfg = {
     'FLMP3MusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['FLMP3MusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['FLMP3MusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1062,7 +1110,7 @@ GequbaoMusicClient saves you from dealing with extra CLI dependencies like ffmpe
   init_music_clients_cfg = {
     'GequbaoMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['GequbaoMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['GequbaoMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1104,7 +1152,7 @@ GequhaiMusicClient is truly plug-and-play: no external CLI tools such as ffmpeg 
   init_music_clients_cfg = {
     'GequhaiMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['GequhaiMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['GequhaiMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1171,7 +1219,7 @@ To use JCPOOMusicClient, you do not need to install any additional CLI tools suc
   init_music_clients_cfg = {
     'JCPOOMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['JCPOOMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['JCPOOMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1200,7 +1248,7 @@ KKWSMusicClient now works without requiring extra CLI tools like ffmpeg or N_m3u
   init_music_clients_cfg = {
     'KKWSMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['KKWSMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['KKWSMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1242,7 +1290,7 @@ LivePOOMusicClient operates without reliance on supplementary CLI tools, includi
   init_music_clients_cfg = {
     'LivePOOMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['LivePOOMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['LivePOOMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1284,7 +1332,7 @@ No extra setup. No external CLI tools. Just pip install musicdl and MituMusicCli
   init_music_clients_cfg = {
     'MituMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['MituMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['MituMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
@@ -1351,7 +1399,7 @@ You don’t need to install any extra tools like ffmpeg or N_m3u8DL-RE to use Yi
   init_music_clients_cfg = {
     'YinyuedaoMusicClient': {'quark_parser_config': {'cookies': your_quark_drive_login_cookies_with_str_or_dict_format}},
   }
-  music_client = musicdl.MusicClient(music_sources=['YinyuedaoMusicClient'])
+  music_client = musicdl.MusicClient(music_sources=['YinyuedaoMusicClient'], init_music_clients_cfg=init_music_clients_cfg)
   music_client.startcmdui()
   ```
 
